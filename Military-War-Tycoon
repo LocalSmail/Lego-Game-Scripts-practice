@@ -111,7 +111,7 @@ if game.PlaceId == 31490825 then
             c.Bullets = BulletsToShoot
             c.CenterDot = true
             c.CanBreachDoor = true
-            c.adsTime = 0.1
+            c.adsTime = 0
             c.gunRecoilUp = {}
             c.gunRecoilTilt = {}
             c.gunRecoilLeft = {}
@@ -126,6 +126,7 @@ if game.PlaceId == 31490825 then
             c.AimInaccuracyDecrease = 900
             c.ShootType = 3
             c.ShootRate = 90000000
+            c.Zoom = AimZoom
             for i, v in pairs(c.FireModes) do
                 if v == false then
                     v = true
