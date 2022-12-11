@@ -32,7 +32,7 @@ if game.PlaceId == 31490825 then
         game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
 
         while Status == true do
-            task.Wait(0)
+            task.wait(2)
             game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
             if Status == false then
                 break
@@ -43,6 +43,7 @@ if game.PlaceId == 31490825 then
     PlayerSettings:Cheat("Checkbox", "Enable Cheat", function(Status)
         a = require(plr.Backpack.G19X["ACS_Settings"])
         b = require(plr.Backpack.Knife["ACS_Settings"])
+        c = require(plr.Backpack["RPG-7"]["ACS_Settings"])
 
         if plr.Backpack:FindFirstChild("G19X") then
 
@@ -71,9 +72,50 @@ if game.PlaceId == 31490825 then
         a.gunRecoilRight = {}
         a.gunRecoil = {}
 
+        for i, v in pairs(a.FireModes) do
+            if v == false then
+                v = true
+                print(i,v)
+            else
+                print(i, v)
+            end
+        end
+
         b.BladeRange = 9999999999999
         b.CanBreachDoor = true
         b.RainbowMode = true
+        
+        if plr.Backpack:FindFirstChild("RPG-7") then
+            c.Ammo = 9999999999999999
+            c.AmmoInGun = 9999999999999999
+            c.MaxStoredAmmo = 9999999999999999
+            c.Bullets = BulletsToShoot
+            c.CenterDot = true
+            c.CanBreachDoor = true
+            c.adsTime = 0.1
+            c.gunRecoilUp = {}
+            c.gunRecoilTilt = {}
+            c.gunRecoilLeft = {}
+            c.gunRecoilRight = {}
+            c.gunRecoil = {}
+            c.MinRecoilPower = 0
+            c.MaxRecoilPower = 0
+            c.RecoilPowerStepAmount = 0
+            c.MinSpread = 0
+            c.MaxSpread = 0
+            c.AimInacuracyStepAmount = 0
+            c.AimInaccuracyDecrease = 900
+            c.ShootType = 3
+            c.ShootRate = 90000000
+            for i, v in pairs(c.FireModes) do
+                if v == false then
+                    v = true
+                    print(i,v)
+                else
+                    print(i, v)
+                end
+            end
+        end
 
         else
             Finity:ToastNotification("Unequip your guns for this to work.", "If any guns are equiped and are not in your backpack it will break.", 10, "Warning", nil)
