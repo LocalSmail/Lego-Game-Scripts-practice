@@ -17,7 +17,6 @@ if game.PlaceId == 31490825 then
 
     local AimZoom = 40 
     local BulletsToShoot = 1
-    local FireMode = 3
 
     local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/LocalSmail/Finity/main/Library"))()
     local FinityWindow = Finity.new("Military War Tycoon Weapon cheat | Press the Home key to toggle")
