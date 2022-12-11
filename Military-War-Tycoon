@@ -31,9 +31,12 @@ if game.PlaceId == 31490825 then
     PlayerSettings:Cheat("Checkbox", "Claim Cash", function(Status)
         game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
 
-        while Status do
+        while Status == true do
             task.Wait(0)
             game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
+            if Status == false then
+                break
+            end
         end
     end)
 
