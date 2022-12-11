@@ -20,7 +20,7 @@ if game.PlaceId == 31490825 then
     local FireMode = 3
 
     local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/LocalSmail/Finity/main/Library"))()
-    local FinityWindow = Finity.new("Military War Tycoon Weapon cheat")
+    local FinityWindow = Finity.new("Military War Tycoon Weapon cheat | Press the Home key to toggle")
 
     local PlayerSettingsCategory = FinityWindow:Category("Player") -- Makes a button on your left
     local PlayerSettings = PlayerSettingsCategory:Sector("Player Configuration") -- Adds sections inside the category, Name Optional
