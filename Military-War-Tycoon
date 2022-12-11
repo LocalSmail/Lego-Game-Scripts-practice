@@ -17,6 +17,7 @@ if game.PlaceId == 31490825 then
 
     local AimZoom = 40 
     local BulletsToShoot = 1
+    local FireMode = 3
 
     local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/LocalSmail/Finity/main/Library"))()
     local FinityWindow = Finity.new("Military War Tycoon Weapon cheat")
@@ -40,10 +41,28 @@ if game.PlaceId == 31490825 then
         end
     end)
 
+    PlayerSettings:Cheat("Slider", "Change Crouch Speed", function(Speed)
+        a = require(game:GetService("ReplicatedStorage")["ACS_Engine"].GameRules.Config)
+        a.CrouchWalkSpeed = Speed
+    end, {min = 1, max = 90000000000000, suffix = "How fast you will go crouched: "})
+
     PlayerSettings:Cheat("Checkbox", "Enable Cheat", function(Status)
         a = require(plr.Backpack.G19X["ACS_Settings"])
         b = require(plr.Backpack.Knife["ACS_Settings"])
         c = require(plr.Backpack["RPG-7"]["ACS_Settings"])
+        
+        
+        config = require(game:GetService("ReplicatedStorage")["ACS_Engine"].GameRules.Config)
+        
+        config.SlidingEnabled = true
+        config.MaxVelocity = 90000000
+        config.AntiBunnyHop = false
+        config.JumpCoolDown = 0
+        config.CrouchRecover = 1000000
+        config.BuildingEnabled = true
+        config.DamageMult = 100000
+        config.SlideCancelling = true
+        config.ProneEnabled = true
 
         if plr.Backpack:FindFirstChild("G19X") then
 
@@ -134,4 +153,20 @@ if game.PlaceId == 31490825 then
         BulletsToShoot = Status
     end, { default = BulletsToShoot, min = 1, max = 1000, suffix = "Higher the num = more shots (Laggy) "})
 
+    GunSettings:Cheat("DropDown", "Change fire modes", function(Mode)
+        a = require(plr.Backpack.G19X["ACS_Settings"])
+        b = require(plr.Backpack.Knife["ACS_Settings"])
+        c = require(plr.Backpack["RPG-7"]["ACS_Settings"])
+        
+        if Mode == "Full Auto" then
+            a.ShootType = 3
+            c.ShootType = 3
+        elseif Mode == "Semi Auto" then
+            a.ShootType = 1
+            c.ShootType = 1
+        elseif Mode == "Burst" then
+            a.ShootType = 2
+            c.ShootType = 2
+        end
+    end, { options = {"Full Auto", "Semi Auto", "Burst"}, default = nil})
 end
