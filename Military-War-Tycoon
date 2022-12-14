@@ -11,6 +11,19 @@ when you run the code and enable the cheat make sure you dont have anything equi
 
 ]]
 
+--[[
+
+obf broke so here, doubt it will work for much longer
+
+Only need to use the pistol, can use rpg too though for tanks and other stuff.
+No recoil, inf ammo, custom aim zoom, custom bullets to shoot at once, auto collect cash, insta kill, tracer shots, full auto, max penetration, center dot etc
+
+Knife will have inf range.
+
+when you run the code and enable the cheat make sure you dont have anything equiped and outside the backpack.
+
+]]
+
 if game.PlaceId == 31490825 then
 
     local plr = game.Players.LocalPlayer
@@ -27,18 +40,6 @@ if game.PlaceId == 31490825 then
     PlayerSettings:Cheat("Slider", "Change Walk Speed", function(Status)
         plr.Character.Humanoid.WalkSpeed = Value
     end, { suffix = " Speed"})
-
-    PlayerSettings:Cheat("Checkbox", "Claim Cash", function(Status)
-        game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
-
-        while Status == true do
-            task.wait(2)
-            game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
-            if Status == false then
-                break
-            end
-        end
-    end)
 
     PlayerSettings:Cheat("Slider", "Change Crouch Speed", function(Speed)
         a = require(game:GetService("ReplicatedStorage")["ACS_Engine"].GameRules.Config)
@@ -65,38 +66,40 @@ if game.PlaceId == 31490825 then
 
         if plr.Backpack:FindFirstChild("G19X") then
 
-        a.MinDamage = math.huge
-        a.Ammo = 9999999999999999
-        a.AmmoInGun = 99999999999999999999999
-        a.IgnoreProtection = true
-        a.Zoom = AimZoom
-        a.Tracer = true
-        a.CenterDot = true
-        a.MinSpread = 0
-        a.BulletPenetration = 100000
-        a.Bullets = BulletsToShoot
-        a.ShootType = 3
-        a.HeadDamage = {[1] = math.huge, [2] = math.huge}
-        a.LimbDamage = {[1] = math.huge, [2] = math.huge}
-        a.TorsoDamage = {[1] = math.huge, [2] = math.huge}
-        a.TracerEveryXShots = 1
-        a.ShellInsert = true
-        a.MaxSpread = 0
-        a.DamageFallOf = 0
-        a.BulletDrop = 0
-        a.gunRecoilUp = {}
-        a.gunRecoilTilt = {}
-        a.gunRecoilLeft = {}
-        a.gunRecoilRight = {}
-        a.gunRecoil = {}
+            a.MinDamage = math.huge
+            a.Ammo = 9999999999999999
+            a.AmmoInGun = 99999999999999999999999
+            a.IgnoreProtection = true
+            a.Zoom = AimZoom
+            a.Tracer = true
+            a.CenterDot = true
+            a.MinSpread = 0
+            a.BulletPenetration = 100000
+            a.Bullets = BulletsToShoot
+            a.ShootType = 3
+            a.HeadDamage = {[1] = math.huge, [2] = math.huge}
+            a.LimbDamage = {[1] = math.huge, [2] = math.huge}
+            a.TorsoDamage = {[1] = math.huge, [2] = math.huge}
+            a.TracerEveryXShots = 1
+            a.ShellInsert = true
+            a.MaxSpread = 0
+            a.DamageFallOf = 0
+            a.BulletDrop = 0
+            a.gunRecoilUp = {}
+            a.gunRecoilTilt = {}
+            a.gunRecoilLeft = {}
+            a.gunRecoilRight = {}
+            a.gunRecoil = {}
 
-        for i, v in pairs(a.FireModes) do
-            if v == false then
-                v = true
-                print(i,v)
-            else
-                print(i, v)
+            for i, v in pairs(a.FireModes) do
+                if v == false then
+                    v = true
+                    print(i,v)
+                else
+                    print(i, v)
+                end
             end
+
         end
 
         b.BladeRange = 9999999999999
@@ -135,10 +138,6 @@ if game.PlaceId == 31490825 then
                 end
             end
         end
-
-        else
-            Finity:ToastNotification("Unequip your guns for this to work.", "If any guns are equiped and are not in your backpack it will break.", 10, "Warning", nil)
-        end
     end)
 
     local GunSettingsCategory = FinityWindow:Category("Gun Stuff") -- Makes a button on your left
@@ -169,4 +168,21 @@ if game.PlaceId == 31490825 then
             c.ShootType = 2
         end
     end, { options = {"Full Auto", "Semi Auto", "Burst"}, default = nil})
+
+    local GameInteractionCat = FinityWindow:Category("Game Interactions") -- Makes a button on your left
+
+    local GameInteractions = GameInteractionCat:Sector() -- Adds sections inside the category, Name Optional
+
+    GameInteractions:Cheat("Checkbox", "Claim Cash (Uncheck to stop)", function(Status)
+        game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
+
+        while Status == true do
+            task.wait(2)
+            game:GetService("ReplicatedStorage").CollectCashEvent:FireServer()
+            if Status == false then
+                break
+            end
+        end
+    end)
+
 end
