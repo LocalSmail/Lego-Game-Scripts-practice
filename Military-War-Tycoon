@@ -11,19 +11,6 @@ when you run the code and enable the cheat make sure you dont have anything equi
 
 ]]
 
---[[
-
-obf broke so here, doubt it will work for much longer
-
-Only need to use the pistol, can use rpg too though for tanks and other stuff.
-No recoil, inf ammo, custom aim zoom, custom bullets to shoot at once, auto collect cash, insta kill, tracer shots, full auto, max penetration, center dot etc
-
-Knife will have inf range.
-
-when you run the code and enable the cheat make sure you dont have anything equiped and outside the backpack.
-
-]]
-
 if game.PlaceId == 31490825 then
 
     local plr = game.Players.LocalPlayer
@@ -94,9 +81,6 @@ if game.PlaceId == 31490825 then
             for i, v in pairs(a.FireModes) do
                 if v == false then
                     v = true
-                    print(i,v)
-                else
-                    print(i, v)
                 end
             end
 
@@ -132,9 +116,6 @@ if game.PlaceId == 31490825 then
             for i, v in pairs(c.FireModes) do
                 if v == false then
                     v = true
-                    print(i,v)
-                else
-                    print(i, v)
                 end
             end
         end
